@@ -7,7 +7,7 @@ It is based on [requests](https://pypi.org/project/requests/). Data analyses in 
 
 Missing setup.py, installation not yet working
 
-    pip install https://github.com/jlu-ilr-hydro/odmfclient/archive/master.zip
+    pip install https://github.com/jlu-ilr-hydro/odmfclient/archive/main.zip
 
 
 ## Usage
