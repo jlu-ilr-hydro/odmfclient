@@ -28,6 +28,9 @@ class APIError(RuntimeError):
 
 
 class AttrDict(dict):
+    """
+    A simple implementation of attribute access to the keys of a dict
+    """
 
     def __getattr__(self, item):
         if item in self:
@@ -40,10 +43,21 @@ class AttrDict(dict):
 
 
 class APIMethod:
+    """
+    Wraps a specific function of the REST-API of ODMF as Python callable object.
+    The functions can have `children` representing the URL tree of the REST API
+    The root API is an APImethod itself.
+
+    The methods are described by the `doc` attribute and a list of parameters.
+    The response of the server is can be translated to list/dict structures when
+    the response mime-type is `application/json` and to a pandas dataframe if applicable
+
+    """
 
     def __init__(self, client,  doc: str, http_methods: typing.List[str], parameters: dict, children: typing.Dict[str, dict], url: str, **kwargs):
         self.url = url
         self.doc = doc
+        self.__doc__ = doc
         self.http_methods = [hm.upper() for hm in http_methods]
         self.parameters = parameters
         self.children = children
