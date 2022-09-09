@@ -1,13 +1,13 @@
 # API client for ODMF
 
-This package allows programatic access to ODMF databases with Python. 
+This package allows programatic access to [ODMF](https://github.com/jlu-ilr-hydro/odmf) databases with Python. 
 It is based on [requests](https://pypi.org/project/requests/). Data analyses in R use [the httr module](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html) 
 
 ## Installation
 
 Missing setup.py, installation not yet working
 
-    pip install https://github.com/jlu-ilr-hydro/odmfclient/archive/master.zip
+    pip install https://github.com/jlu-ilr-hydro/odmfclient/archive/main.zip
 
 
 ## Usage
