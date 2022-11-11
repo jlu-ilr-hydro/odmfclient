@@ -188,8 +188,14 @@ class APIclient:
             logger.error(f'Login {username} failed at {self.apiurl}')
             raise AuthorizationError(username)
 
-    def __init__(self, apiurl: str):
+    def __init__(self, apiurl: str, session_auth=None):
+        """
+        Creates the requests session. If sessionauth (a tuple (username, password) is given,
+        this used for basic authentification
+        """
         self.session = requests.Session()
+        if session_auth:
+            self.session.auth = tuple(session_auth)
         self.apiurl = apiurl
 
     def __enter__(self):
@@ -200,9 +206,9 @@ class APIclient:
 
 
 @contextlib.contextmanager
-def login(base_url, username, password):
-    with APIclient(base_url).login(username, password) as client:
-        yield client.api
+def login(base_url, username, password, session_auth=None):
+    with APIclient(base_url, session_auth) as client:
+        yield client.login(username, password).api
 
 
 if __name__ == '__main__':

@@ -18,7 +18,7 @@ classifiers = [
 ]
 dynamic = ["version"]
 dependencies = [
-    "pandas~=1.4.0",
+    "pandas",
     "requests",
     "pyyaml",
     "pyarrow"
