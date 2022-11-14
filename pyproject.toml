@@ -31,7 +31,3 @@ readme = {file = ["README.md"]}
 [project.urls]
 "Homepage" = "https://github.com/jlu-ilr-hydro/odmfclient"
 "Bug Tracker" = "https://github.com/jlu-ilr-hydro/odmfclient/issues"
-# [tool]
-#[tool.hatch]
-# [tool.hatch.version]
-path = "odmfclient/__init__.py"
