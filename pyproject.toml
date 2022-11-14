@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "odmfclient"
@@ -23,11 +23,15 @@ dependencies = [
     "pyyaml",
     "pyarrow"
 ]
+[tool.setuptools.dynamic]
+
+version = {attr = "odmfclient.__version__"}
+readme = {file = ["README.md"]}
 
 [project.urls]
 "Homepage" = "https://github.com/jlu-ilr-hydro/odmfclient"
 "Bug Tracker" = "https://github.com/jlu-ilr-hydro/odmfclient/issues"
-[tool]
-[tool.hatch]
-[tool.hatch.version]
+# [tool]
+#[tool.hatch]
+# [tool.hatch.version]
 path = "odmfclient/__init__.py"
