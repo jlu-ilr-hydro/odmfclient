@@ -37,6 +37,8 @@ with login('https://path/to/odmf', 'user', 'password') as api:
     datasets = api.dataset.list(site=1, valuetype=1)
     # Get values for the first dataset found as pandas.DataFrame
     df = api.dataset.values_parquet(dsid=datasets[0])
+    # Upload some content to a file in the ODMF-file manager
+    api.upload(b'Some binary content, usually what you load from a file', targetpath='path/to/file', overwrite=True)
 ~~~~~~~~~~
 
 ### Access ODMF behind an reverse proxy requiring authentification
