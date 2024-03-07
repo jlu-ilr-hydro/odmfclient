@@ -182,7 +182,7 @@ class APIclient:
     def login(self, username: str, password: str):
         r = self.post('/api/login', data={'username': username, 'password': password})
         if 200 <= r.status_code < 300:
-            logger.info(f'Login as {username} succeceeded {self.apiurl}')
+            logger.info(f'Login as {username} ok: {self.apiurl}')
             return self
         else:
             logger.error(f'Login {username} failed at {self.apiurl}')
