@@ -122,7 +122,7 @@ class APIMethod:
         else:
             raise ValueError(f'{self.url} does not accept a POST, GET or PUT method')
         if 200 <= r.status_code < 300:
-            logger.info(f'{self.url} success')
+            logger.debug(f'{self.url} success')
             return self.translate_response(r)
         elif 400 <= r.status_code < 600:
             logger.error(f'{self.url} failed: {r.status_code}')
